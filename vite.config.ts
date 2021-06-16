@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport from 'vite-plugin-style-import'
-
+import { resolve } from 'path'
 export default defineConfig({
   plugins: [
     vue(),
@@ -19,5 +19,27 @@ export default defineConfig({
         },
       }]
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, "./src")
+    }
+    // alias: [
+    //   {
+    //     find: 'vue-i18n',
+    //     replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+    //   },
+    //   // /@/xxxx => src/xxxx
+    //   {
+    //     find: /\/@\//,
+    //     replacement: pathResolve('src') + '/',
+    //   },
+    //   // /#/xxxx => types/xxxx
+    //   {
+    //     find: /\/#\//,
+    //     replacement: pathResolve('types') + '/',
+    //   },
+    //   // ['@vue/compiler-sfc', '@vue/compiler-sfc/dist/compiler-sfc.esm-browser.js'],
+    // ],
+  },
 })
