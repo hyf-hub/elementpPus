@@ -21,7 +21,7 @@ const cForm = reactive({
   username: '',
   password: ''
 })
-const 
+const submit = () => { };
 // export default {
 //   setup() {
 //     const form = ref(null);
