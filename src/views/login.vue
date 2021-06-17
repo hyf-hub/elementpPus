@@ -22,9 +22,9 @@ const Submit = () => {
   login(Cform).then((res) => {
     const { data } = res
     if (res.data.code === 200) {
-      console.log('token', data.token);
+      const { token } = res.data
       ElMessage('登录成功')
-      localStorage.setItem('token', data.token)
+      localStorage.setItem('token', token)
       router.push('/')
     } else {
       ElMessage(data.msg)
